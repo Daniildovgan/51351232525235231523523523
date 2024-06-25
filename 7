@@ -1,0 +1,48 @@
+#include <iostream>
+#include <vector>
+
+int main() {
+    int M;
+    std::cout << "Введіть розмір масиву A (M): ";
+    std::cin >> M;
+    
+    std::vector<int> A(M);
+    
+    std::cout << "Введіть елементи масиву A:" << std::endl;
+    for (int i = 0; i < M; ++i) {
+        std::cin >> A[i];
+    }
+    
+    int choice;
+    std::cout << "Виберіть опцію для видалення:" << std::endl;
+    std::cout << "1. Парні значення" << std::endl;
+    std::cout << "2. Непарні значення" << std::endl;
+    std::cin >> choice;
+    
+    std::vector<int> B;
+    
+    if (choice == 1) {
+        for (int i = 0; i < M; ++i) {
+            if (A[i] % 2 != 0) {
+                B.push_back(A[i]);
+            }
+        }
+    } else if (choice == 2) {
+        for (int i = 0; i < M; ++i) {
+            if (A[i] % 2 == 0) {
+                B.push_back(A[i]);
+            }
+        }
+    } else {
+        std::cout << "Неправильний вибір опції!" << std::endl;
+        return 1;
+    }
+    
+    std::cout << "Результат після видалення:" << std::endl;
+    for (int num : B) {
+        std::cout << num << " ";
+    }
+    std::cout << std::endl;
+    
+    return 0;
+}
